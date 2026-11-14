@@ -8,10 +8,10 @@ Windows kurulum paketi, 8 Kasım 2026'da çalışan beş ürünlü sürümün **
 
 Windows 10/11, etkinleştirilmiş masaüstü Microsoft Excel, Python 3.13 ve `py` başlatıcısı gerekir. Excel'i görev için kullanacağınız Windows hesabında bir kez açıp ilk kullanım ekranlarını tamamlayın. Git kullanacaksanız Git for Windows ve hedef depoya erişim de gerekir. ZIP üzerinden kurulumda arşivi yerel bir klasöre açıp aşağıdaki kurulum komutuyla başlayın.
 
-Depo hazır olduğunda, PowerShell'de `ORG` ve `REPO` değerlerini gerçek depo adıyla değiştirin.
+PowerShell’de aşağıdaki komutları çalıştırın.
 
 ```powershell
-git clone https://github.com/ORG/REPO.git "$env:LOCALAPPDATA\WASDE-Automation"
+git clone https://github.com/solipsirai/wasde-automation.git "$env:LOCALAPPDATA\WASDE-Automation"
 if ($LASTEXITCODE -ne 0) { throw 'Git clone failed.' }
 Set-Location "$env:LOCALAPPDATA\WASDE-Automation"
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1

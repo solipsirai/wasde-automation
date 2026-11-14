@@ -836,6 +836,7 @@ def windows_excel_session():
     calc_mode=None
     control_book=None
     try:
+        excel.AutomationSecurity = 3  # msoAutomationSecurityForceDisable
         excel.Visible=False
         excel.DisplayAlerts=False
         excel.AskToUpdateLinks=False
@@ -966,7 +967,7 @@ def main(argv=None):
             if time.time()-state.get(tag+':last_checked',0)<1800:return 0
         if args.file:
             txt=args.file.read_text(encoding='utf-8-sig')
-            source=args.file.resolve().as_uri()
+            source="Local USDA report (offline input)"
         else:
             txt,source=get_report(year,month)
         digest=hashlib.sha256(txt.encode('utf-8')).hexdigest()
