@@ -118,3 +118,11 @@ This project downloads the monthly USDA World Agricultural Supply and Demand Est
 5. Use Windows Task Scheduler or the macOS `launchd` agent to run the automation on USDA release days. Test the scheduled job under the account that will run it. On macOS, allow access to Excel under System Settings → Privacy & Security → Automation when prompted. See the [macOS setup guide](MAC_KURULUM.md) or the Turkish Windows instructions above for scheduler commands.
 
 Workbooks, local settings, logs, and backups are stored on your computer. Keep them out of commits.
+
+⚠️ Disclaimer
+
+This project is for educational and engineering research purposes only. It does not constitute financial advice. The developer is not responsible for any financial losses incurred from using this bot or its signals. Trade at your own risk.
+
+⚖️ Yasal Uyarı (Disclaimer)
+
+Bu yazılım tamamen açık kaynaklı bir mühendislik ve veri bilimi araştırma projesi (Proof of Concept) olarak tasarlanmıştır. Çıktıların hiçbiri bir ticaret sistemi teklifi veya finansal yatırım tavsiyesi (YTD) niteliği taşımaz. Finansal piyasalar doğası gereği yüksek risk içerir, projenin kullanımı sonucu doğabilecek kâr veya zararlardan kodun geliştiricileri veya katkıda bulunanlar sorumlu tutulamaz. Yazılımı kullanmadan önce daima kendi risk analizinizi ve testlerinizi gerçekleştirmeniz önerilir.
