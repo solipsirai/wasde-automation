@@ -103,3 +103,18 @@ Hata ayrıntıları `runtime\wasde_automation.log` içinde. Açık veya salt oku
 | `.gitignore` | Yerel yapılandırma, Excel'ler ve çalışma çıktıları için Git kuralları |
 
 Windows'ta 11 Kasım yamasının bu taşınabilir sürümüyle yapılacak ilk gerçek yazma denemesi, üretim görevi açılmadan önce tamamlanmalıdır.
+
+
+## English overview
+
+This project downloads the monthly USDA World Agricultural Supply and Demand Estimates (WASDE) report and updates five local Microsoft Excel workbooks for wheat, corn, soybeans, soybean oil, and sugar. Each release adds a U.S. balance sheet and a second worksheet for world data or, for sugar, Mexico. The change column compares the previous and current projections in the same USDA report. The script backs up the workbooks before applying an update.
+
+### Getting started
+
+1. Install Python 3.13 and activate the desktop version of Microsoft Excel. Clone or download this repository, then open PowerShell (Windows) or Terminal (macOS) in the project folder.
+2. On Windows, run `powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1`. On macOS, run `bash install-mac.sh`. The installer creates the local Python environment, installs dependencies, and runs regression tests.
+3. Prepare your own five `.xlsx` workbooks and place them in `workbooks/`. See the [workbook preparation guide](EXCEL_HAZIRLAMA.md) for exact filenames and cell labels. Each workbook needs a U.S. Balance Sheet tab for the month before your first update. For a November 2026 update, name that seed tab `October'26 Balance Sheet`. You can leave its historical values blank. The script fills the new release tabs from the USDA report. If your filenames differ, edit `config.json`.
+4. On Windows use `.\.venv\Scripts\python.exe` and on macOS use `.venv/bin/python` to run `wasde_automation.py --check-install`, followed by `wasde_automation.py --report 2026-11 --dry-run`. The dry run parses the report without writing to your workbooks. Use the month you are testing and verify a real update on copies of all five workbooks before enabling the scheduler.
+5. Use Windows Task Scheduler or the macOS `launchd` agent to run the automation on USDA release days. Test the scheduled job under the account that will run it. On macOS, allow access to Excel under System Settings → Privacy & Security → Automation when prompted. See the [macOS setup guide](MAC_KURULUM.md) or the Turkish Windows instructions above for scheduler commands.
+
+Workbooks, local settings, logs, and backups are stored on your computer. Keep them out of commits.
