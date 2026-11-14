@@ -1,0 +1,10 @@
+{
+  "workbook_directory": "workbooks",
+  "workbooks": {
+    "wheat": "Wheat Wasde.xlsx",
+    "corn": "Corn Wasde(1).xlsx",
+    "soybean": "Soybean Wasde(1).xlsx",
+    "soyoil": "Soyoil Wasde(1).xlsx",
+    "sugar": "Sugar Wasde(1).xlsx"
+  }
+}
